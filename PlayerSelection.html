@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TwistedMind</title>
+    <script src="playerSelect.js"></script>
 </head>
 <body>
     <h1>How Many Players?</h1>
-    <button class="1Player" onclick="onePlayer()">1 Player (Player vs NPC)</button>
-    <button class="2Player" onclick="twoPlayer()">2 Players (Player vs Player)</button>
-    <button class="confirm">Confirm</button>
+    <button id="1Player" onclick="onePlayer()">1 Player (Player vs NPC)</button>
+    <button id="2Player" onclick="twoPlayer()">2 Players (Player vs Player)</button>
+    <button id="confirm">Confirm</button>
     <div class="roundSelect">
         <input type="range" min="1" max="50" value="25" class="slider" id="myRange">
-    </div> <!--make this when 2 player is selected it shows-->
+    </div> <!--make visible this when 2 player is selected-->
 </body>
 </html>
