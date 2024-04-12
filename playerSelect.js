@@ -3,6 +3,7 @@ let roundsTotal = 0;
 let roundsPlayed = 0;
 let colors = ["Red", "Blue", "Cyan", "Pink", "Brown", "Green", "Black", "Gold"];
 let combination = [];
+let randComb = colors[Math.floor(Math.random() * colors.length)];
 
 
 
@@ -21,11 +22,12 @@ function twoPlayer() {
     slider = slider.style.display = "block"; // shows slider
 }
 function ready() {
-    console.log(combination.length);
-    
+    // console.log(combination.length);
     if (playerCount == 1) {
         while (combination.length < 4) {
-            // use splice tag and someway to randomize combination
+            let randComb = colors[Math.floor(Math.random() * colors.length)];
+            combination.push(randComb);
+            console.log(combination);
         }
     }
 

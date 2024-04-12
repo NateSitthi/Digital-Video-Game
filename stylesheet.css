@@ -6,27 +6,27 @@
     display: inline-block;
     
   }
-  .c1 {
+  #c1 {
     background-color: red;
   }
-  .c2 {
+  #c2 {
     background-color: blue;
   }
-  .c3 {
+  #c3 {
     background-color: greenyellow;
   }
-  .c4 {
+  #c4 {
     background-color: yellow;
   }
-  .c5  {
+  #c5  {
     background-color: cyan;
   }
-  .c6 {
+  #c6 {
     background-color: magenta;
   }
-  .c7 {
+  #c7 {
     background-color: purple;
   }
-  .c8 {
+  #c8 {
     background-color: white;
   }
