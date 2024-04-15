@@ -30,5 +30,5 @@ function ready() {
             console.log(combination);
         }
     }
-
 }
+export { combination };
