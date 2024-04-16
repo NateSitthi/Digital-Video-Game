@@ -1,4 +1,5 @@
-var playerCount = 0;
+
+let playerCount = 0;
 let roundsTotal = 0;
 let roundsPlayed = 0;
 let colors = ["Red", "Blue", "Cyan", "Pink", "Brown", "Green", "Black", "Gold"];
@@ -14,13 +15,13 @@ function onePlayer() {
     let slider = document.getElementById("myRange");
     slider = slider.style.display = "none";
 }
-function twoPlayer() {
-    document.getElementById("2Player");
-    playerCount = 2;
-    console.log(playerCount);
-    let slider = document.getElementById("myRange");
-    slider = slider.style.display = "block"; // shows slider
-}
+// function twoPlayer() {
+//     document.getElementById("2Player");
+//     playerCount = 2;
+//     console.log(playerCount);
+//     let slider = document.getElementById("myRange");
+//     slider = slider.style.display = "block"; // shows slider
+// }
 function ready() {
     // console.log(combination.length);
     if (playerCount == 1) {
@@ -31,4 +32,4 @@ function ready() {
         }
     }
 }
-export { combination };
+// im punching something 
