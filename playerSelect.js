@@ -5,31 +5,18 @@ let roundsPlayed = 0;
 let colors = ["Red", "Blue", "Cyan", "Pink", "Brown", "Green", "Black", "Gold"];
 let combination = [];
 let randComb = colors[Math.floor(Math.random() * colors.length)];
+let guess = 8;
 
 
-
-function onePlayer() {
-    document.getElementById("1Player");
-    playerCount = 1;
-    console.log(playerCount);
-    let slider = document.getElementById("myRange");
-    slider = slider.style.display = "none";
-}
-// function twoPlayer() {
-//     document.getElementById("2Player");
-//     playerCount = 2;
-//     console.log(playerCount);
-//     let slider = document.getElementById("myRange");
-//     slider = slider.style.display = "block"; // shows slider
-// }
 function ready() {
-    // console.log(combination.length);
-    if (playerCount == 1) {
+    conButton = document.getElementById('confirm');
+    conButton.style.display ='none';
         while (combination.length < 4) {
             let randComb = colors[Math.floor(Math.random() * colors.length)];
             combination.push(randComb);
             console.log(combination);
         }
-    }
+
 }
 // im punching something 
+

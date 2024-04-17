@@ -1,32 +1,48 @@
 .dot {
-    height: 25px;
-    width: 25px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    
-  }
-  #c1 {
-    background-color: red;
-  }
-  #c2 {
-    background-color: blue;
-  }
-  #c3 {
-    background-color: greenyellow;
-  }
-  #c4 {
-    background-color: yellow;
-  }
-  #c5  {
-    background-color: cyan;
-  }
-  #c6 {
-    background-color: magenta;
-  }
-  #c7 {
-    background-color: purple;
-  }
-  #c8 {
-    background-color: white;
-  }
+  height: 60px;
+  width: 60px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  flex-flow: row nowrap;
+  margin: 2px;
+}
+
+.colors {
+  max-height: 5rem;
+  left: 43%;
+  position: relative;
+  
+}
+
+#c1 {
+  background-color: red;
+}
+
+#c2 {
+  background-color: blue;
+}
+
+#c3 {
+  background-color: greenyellow;
+}
+
+#c4 {
+  background-color: yellow;
+}
+
+#c5 {
+  background-color: cyan;
+}
+
+#c6 {
+  background-color: magenta;
+}
+
+#c7 {
+  background-color: purple;
+}
+
+#c8 {
+  background-color: white;
+}
