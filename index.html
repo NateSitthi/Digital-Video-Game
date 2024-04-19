@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TwistedMind</title>
+    <script src="playerSelect.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
+
 <body>
-    <h1 class="headerTitle">TwistedMind</h1>
-    <a href="Rules.html">Begin</a>
-    
+    <!-- <h1>How Many Players?</h1> -->
+    <!-- <button id="1Player" onclick="onePlayer()">1 Player (Player vs NPC)</button> -->
+    <button id="confirm" onclick="game()">Confirm</button>
+    <div>
+        <button class="dot" id="c1" value='Red' onclick="updateUserlist('Red'), compare()"></button>
+        <button class="dot" id="c2" value='Blue' onclick="updateUserlist('Blue'), compare()"></button>
+        <button class="dot" id="c3" value='Cyan' onclick="updateUserlist('Cyan'), compare()"></button>
+        <button class="dot" id="c4" value='Pink' onclick="updateUserlist('Pink'), compare()"></button>
+        <button class="dot" id="c5" value='Brown' onclick="updateUserlist('Brown'), compare()"></button>
+        <button class="dot" id="c6" value='Green' onclick="updateUserlist('Green'), compare()"></button>
+        <button class="dot" id="c7" value='Black' onclick="updateUserlist('Black'), compare()"></button>
+        <button class="dot" id="c8" value='Gold' onclick="updateUserlist('Gold'), compare()"></button>
+    </div>
 </body>
+
 </html>
