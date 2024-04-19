@@ -15,34 +15,66 @@
   
 }
 
-#c1 {
+#Red {
   background-color: red;
 }
 
-#c2 {
+#Blue {
   background-color: blue;
 }
 
-#c3 {
+#Cyan {
   background-color: cyan;
 }
 
-#c4 {
+#Pink {
   background-color: pink;
 }
 
-#c5 {
+#Brown {
   background-color: brown;
 }
 
-#c6 {
+#Green {
   background-color: green;
 }
 
-#c7 {
+#Black {
   background-color: black;
 }
 
-#c8 {
+#Gold {
+  background-color: gold
+}
+
+.Red {
+  background-color: red;
+}
+
+.Blue {
+  background-color: blue;
+}
+
+.Cyan {
+  background-color: cyan;
+}
+
+.Pink {
+  background-color: pink;
+}
+
+.Brown {
+  background-color: brown;
+}
+
+.Green {
+  background-color: green;
+}
+
+.Black {
+  background-color: black;
+}
+
+.Gold {
   background-color: gold
 }
