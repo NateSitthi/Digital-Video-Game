@@ -10,8 +10,8 @@ let S1 = document.getElementById("S1"), S2 = document.getElementById("S2"), S3 =
 let userGuess = 8;
 let randComb = colors[Math.floor(Math.random() * colors.length)];
 let guess = 8;
-const minScrambleAtGuess = 4;
-const maxScrambleAtGuess = 6;
+const minScrambleAtGuess = 2;
+const maxScrambleAtGuess = 5;
 let scrambleAtGuess = 0;
 
 function ready() {
@@ -56,6 +56,7 @@ function game() {
 function checkGuess() {
     if(guess === scrambleAtGuess) {
         rescramble();
+        document.getElementById("userInput").innerText +=("\nCode has been rescrambled")
     }
 
 

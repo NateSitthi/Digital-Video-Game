@@ -12,7 +12,13 @@
     <!-- <h1>How Many Players?</h1> -->
     <!-- <button id="1Player" onclick="onePlayer()">1 Player (Player vs NPC)</button> -->
     <button id="confirm" onclick="game()">Confirm</button>
-    <div>
+    <div class="displayedColors">
+        <span class="dot" id="S1"></span>
+        <span class="dot" id="S2"></span>
+        <span class="dot" id="S3"></span>
+        <span class="dot" id="S4"></span>
+    </div>
+<div>
         <button class="dot" id="Red" value='Red' onclick="updateUserlist('Red')"></button>
         <button class="dot" id="Black" value='Blue' onclick="updateUserlist('Blue')"></button>
         <button class="dot" id="Cyan" value='Cyan' onclick="updateUserlist('Cyan')"></button>
@@ -21,11 +27,8 @@
         <button class="dot" id="Green" value='Green' onclick="updateUserlist('Green')"></button>
         <button class="dot" id="Black" value='Black' onclick="updateUserlist('Black')"></button>
         <button class="dot" id="Gold" value='Gold' onclick="updateUserlist('Gold')"></button>
-        <span class="dot" id="S1"></span>
-        <span class="dot" id="S2"></span>
-        <span class="dot" id="S3"></span>
-        <span class="dot" id="S4"></span>
-    </div>
+</div>
+   
     <div id="userInput"></div>
     <div id="result"></div>
     <script src="playerSelect.js"></script>
