@@ -15,8 +15,6 @@ const maxScrambleAtGuess = 5;
 let scrambleAtGuess = 0;
 
 function ready() {
-    conButton = document.getElementById('confirm');
-    // conButton.style.display ='none';
     while (combination.length < 4) {
         let randComb = colors[Math.floor(Math.random() * colors.length)];
         combination.push(randComb);
@@ -32,9 +30,9 @@ function updateUserlist(color) {
         userComb.push(color);
     }
     for (let i = 1; i <= 4; i++) {
-        let currentSpan = document.getElementById("S" + i);
-        if (currentSpan.classList.length < 2) {
-            currentSpan.classList.add("dot", color);
+        let inputColor = document.getElementById("S" + i);
+        if (inputColor.classList.length < 2) {
+            inputColor.classList.add("dot", color);
             break;
         }
 
@@ -43,14 +41,14 @@ function updateUserlist(color) {
 function game() {
 
     if (userComb.length === 4) {
-        let userInput = "Your input: ";
+        let userInput = "Chosen Colors: ";
         for (let i = 0; i < userComb.length; i++) {
             userInput += userComb[i] + " ";
         }
         document.getElementById("userInput").innerText = userInput;
         checkGuess();
     } else {
-        document.getElementById("result").innertext +=("Please make a complete guess with 4 colors.");
+        document.getElementById("result").innertext +=("Please make a guess with 4 colors");
     }
 }
 function checkGuess() {
@@ -60,39 +58,39 @@ function checkGuess() {
     }
 
 
-    let blackPegs = 0;
-    let whitePegs = 0;
+    let corColorcorPlace = 0;
+    let corColorwrongPlace = 0;
 
     // Count black pegs (correct color in correct position)
     for (let i = 0; i < 4; i++) {
         if (userComb[i] === combination[i]) {
-            blackPegs++;
+            corColorcorPlace++;
         }
     }
 
     //(correct color in wrong position)
     for (let i = 0; i < 4; i++) {
         if (userComb.includes(combination[i]) && userComb[i] !== combination[i]) {
-            whitePegs++;
+            corColorwrongPlace++;
         }
     }
-    // Display feedback
-    let feedbackMessage = `Black Pegs: ${blackPegs}, White Pegs: ${whitePegs}`;
+    // display feedback
+    let feedbackMessage = `Black Pegs: ${corColorcorPlace}, White Pegs: ${corColorwrongPlace}`;
     document.getElementById("result").innerText = feedbackMessage;
-    // win condition
-    if (blackPegs === 4) {
-        document.getElementById("result").innerText += "\nCongratulations! You've guessed the combination!";
+    // did the user win
+    if (corColorcorPlace === 4) {
+        document.getElementById("result").innerText += "\nYou've guessed the combination!";
         document.getElementById("confirm").disabled = true;
         if (guess === 0) {
-            document.getElementById("result").innerText += "\nYou've run out of guesses.";
+            document.getElementById("result").innerText += "\nYou've run out of guesses and lost :(";
             document.getElementById("confirm").disabled = true;
         }
     }
     // Clear the color
     for (let i = 1; i <= 4; i++) {
-        let currentSpan = document.getElementById("S" + i);
-        currentSpan.classList.remove(userComb[i - 1]);
-        currentSpan.removeAttribute("value");
+        let inputColor = document.getElementById("S" + i);
+        inputColor.classList.remove(userComb[i - 1]);
+        inputColor.removeAttribute("value");
     }
     guess--
 
