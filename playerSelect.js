@@ -65,6 +65,7 @@ function checkGuess() {
     for (let i = 0; i < 4; i++) {
         if (userComb[i] === combination[i]) {
             corColorcorPlace++;
+            console.log(userComb[i])
         }
     }
 

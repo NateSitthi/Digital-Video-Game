@@ -78,3 +78,8 @@
 .Gold {
   background-color: gold
 }
+.rectangle {
+  height: 50px;
+  width: 100px;
+  background-color: #555;
+}
