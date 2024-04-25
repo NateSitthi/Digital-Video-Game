@@ -80,43 +80,50 @@ function checkGuess() {
     let corColorwrongPlace = 0;
 
     //(correct color in correct position)
-    for (let i = 0; i < 4; i++) {
-        if (userComb[i] === combination[i]) {
-            corColorcorPlace++;
-            // rectangle.classList.add("correctPlace");
-            console.log(userComb[i])
-        }
-    }
+    // for (let i = 0; i < 4; i++) {
+    //     if (userComb[i] === combination[i]) {
+    //         corColorcorPlace++;
+    //         // rectangle.classList.add("correctPlace");
+    //         console.log(userComb[i])
+    //         break
+    //     } 
+    // }
 
     //(correct color in wrong position)
     for (let i = 0; i < 4; i++) {
-        let rectangle = document.querySelector(".r" + i);
         if (userComb.includes(combination[i]) && userComb[i] !== combination[i]) {
             corColorwrongPlace++;
+            console.log(`Color Place: ${corColorwrongPlace}` )
+
             // rectangle.classList.add("wrongPlace");
-        }
+        } else if (userComb[i] === combination[i]) {
+                    corColorcorPlace++;
+                    // rectangle.classList.add("correctPlace");
+                    console.log(userComb[i])
+                } 
     }
-    for (let i = 1; i <= 4; i++) {
-        let rectangle = document.querySelector(".r" + i);
-        rectangle.classList.remove("correctPlace", "wrongPlace"); // remove previous classes
+    // for (let i = 1; i <= 4; i++) {
+    //     let rectangle = document.querySelector(".r" + i);
+    //     rectangle.classList.remove("correctPlace", "wrongPlace"); // remove previous classes
         
-        if (i <= corColorcorPlace) {
-            rectangle.classList.add("correctPlace"); // correct color in correct place
-        } else if (i <= (corColorcorPlace + corColorwrongPlace)) {
-            rectangle.classList.add("wrongPlace"); // correct color in wrong place
-        }
-    }
+    //     if (i <= corColorcorPlace) {
+    //         rectangle.classList.add("correctPlace"); // correct color in correct place
+    //     } else if (i <= (corColorcorPlace + corColorwrongPlace)) {
+    //         rectangle.classList.add("wrongPlace"); // correct color in wrong place
+    //     }
+    // }
     // display feedback
     
     // did the user win
     if (corColorcorPlace === 4) {
         document.getElementById("result").innerText += "\nYou've guessed the combination!";
         document.getElementById("confirm").disabled = true;
-        if (guess === 0) {
+        
+    }
+    if (guess === 0) {
             document.getElementById("result").innerText += "\nYou've run out of guesses and lost :(";
             document.getElementById("confirm").disabled = true;
         }
-    }
     // Clear the color
     for (let i = 1; i <= 4; i++) {
         let inputColor = document.getElementById("S" + i);
