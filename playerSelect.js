@@ -41,18 +41,27 @@ function updateUserlist(color) {
     }
 }
 function game() {
-
     if (userComb.length === 4) {
         let userInput = "Your input: ";
         for (let i = 0; i < userComb.length; i++) {
             userInput += userComb[i] + " ";
         }
-        document.getElementById("userInput").innerText = userInput;
+
+        // Update the previous guess section with the user's combination
+        for (let i = 0; i < 4; i++) {
+            let prevGuessDot = document.getElementById("PG" + (i + 1));
+            prevGuessDot.classList.add(userComb[i]); // Add new color class
+        }
+
+        // Clear the result message
+        document.getElementById("result").innerText = "";
+
         checkGuess();
     } else {
-        document.getElementById("result").innertext +=("Please make a complete guess with 4 colors.");
+        document.getElementById("result").innerText += "Please make a guess with 4 colors";
     }
 }
+
 function checkGuess() {
     if(guess === scrambleAtGuess) {
         rescramble();
@@ -63,7 +72,7 @@ function checkGuess() {
     let blackPegs = 0;
     let whitePegs = 0;
 
-    // Count black pegs (correct color in correct position)
+    //(correct color in correct position)
     for (let i = 0; i < 4; i++) {
         if (userComb[i] === combination[i]) {
             blackPegs++;

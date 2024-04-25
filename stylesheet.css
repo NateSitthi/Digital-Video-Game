@@ -7,22 +7,28 @@
   flex-flow: row nowrap;
   margin: 2px;
 }
-
+/* .prevGuess {
+    visibility: hidden;
+} */
 .colors {
   max-height: 5rem;
   left: 43%;
   position: relative;
   
 }
+.correctPlace {
+  background-color: green;
+}
 
+.wrongPlace {
+  background-color: yellow;
+}
 #Red {
   background-color: red;
 }
-
 #Blue {
   background-color: blue;
 }
-
 #Cyan {
   background-color: cyan;
 }
@@ -32,7 +38,7 @@
 }
 
 #Brown {
-  background-color: brown;
+  background-color: #8B4513;
 }
 
 #Green {
@@ -64,7 +70,7 @@
 }
 
 .Brown {
-  background-color: brown;
+  background-color: #8B4513;
 }
 
 .Green {
@@ -81,5 +87,13 @@
 .rectangle {
   height: 50px;
   width: 100px;
-  background-color: #555;
+  position: relative;
+  left: 7px;
+  max-width: 3rem;
+  max-height: 1rem;
+  border-style: solid;
+}
+.prevGuess {
+  display: flex;
+  justify-content: flex-start;
 }
