@@ -39,18 +39,34 @@ function updateUserlist(color) {
     }
 }
 function game() {
-
     if (userComb.length === 4) {
-        let userInput = "Chosen Colors: ";
-        for (let i = 0; i < userComb.length; i++) {
-            userInput += userComb[i] + " ";
+        // Show previous guess dots
+        let prevGuessDots = document.querySelectorAll(".prevGuess .dot");
+        prevGuessDots.forEach(dot => {
+            dot.style.visibility = "visible";
+        });
+
+        // Reset previous guess section
+        for (let i = 0; i < 4; i++) {
+            let prevGuessDot = document.getElementById("PG" + (i + 1));
+            prevGuessDot.classList.remove(prevGuessDot.classList[1]); // Remove previous color class
         }
-        document.getElementById("userInput").innerText = userInput;
+
+        // Update the previous guess section with the user's combination
+        for (let i = 0; i < 4; i++) {
+            let prevGuessDot = document.getElementById("PG" + (i + 1));
+            prevGuessDot.classList.add(userComb[i]); // Add new color class
+        }
+
+        // Clear the result message
+        document.getElementById("result").innerText = "";
+
         checkGuess();
     } else {
-        document.getElementById("result").innertext +=("Please make a guess with 4 colors");
+        document.getElementById("result").innerText += "Please make a guess with 4 colors";
     }
 }
+
 function checkGuess() {
     if(guess === scrambleAtGuess) {
         rescramble();
@@ -61,7 +77,7 @@ function checkGuess() {
     let corColorcorPlace = 0;
     let corColorwrongPlace = 0;
 
-    // Count black pegs (correct color in correct position)
+    //(correct color in correct position)
     for (let i = 0; i < 4; i++) {
         if (userComb[i] === combination[i]) {
             corColorcorPlace++;
@@ -75,9 +91,18 @@ function checkGuess() {
             corColorwrongPlace++;
         }
     }
+    for (let i = 1; i <= 4; i++) {
+        let rectangle = document.querySelector(".r" + i);
+        rectangle.classList.remove("correctPlace", "wrongPlace"); // remove previous classes
+        
+        if (i <= corColorcorPlace) {
+            rectangle.classList.add("correctPlace"); // correct color in correct place
+        } else if (i <= (corColorcorPlace + corColorwrongPlace)) {
+            rectangle.classList.add("wrongPlace"); // correct color in wrong place
+        }
+    }
     // display feedback
-    let feedbackMessage = `Black Pegs: ${corColorcorPlace}, White Pegs: ${corColorwrongPlace}`;
-    document.getElementById("result").innerText = feedbackMessage;
+    
     // did the user win
     if (corColorcorPlace === 4) {
         document.getElementById("result").innerText += "\nYou've guessed the combination!";

@@ -20,7 +20,7 @@
     </div>
     <div>
         <button class="dot" id="Red" value='Red' onclick="updateUserlist('Red')"></button>
-        <button class="dot" id="Black" value='Blue' onclick="updateUserlist('Blue')"></button>
+        <button class="dot" id="Blue" value='Blue' onclick="updateUserlist('Blue')"></button>
         <button class="dot" id="Cyan" value='Cyan' onclick="updateUserlist('Cyan')"></button>
         <button class="dot" id="Pink" value='Pink' onclick="updateUserlist('Pink')"></button>
         <button class="dot" id="Brown" value='Brown' onclick="updateUserlist('Brown')"></button>
@@ -29,10 +29,22 @@
         <button class="dot" id="Gold" value='Gold' onclick="updateUserlist('Gold')"></button>
     </div>
     <div class="prevGuess">
-        <span class="dot" id="PG1"></span>
-        <span class="dot" id="PG2"></span>
-        <span class="dot" id="PG3"></span>
-        <span class="dot" id="PG4"></span>
+        <div class="guessRow">
+            <span class="dot" id="PG1"></span>
+            <div class="rectangle r1"></div>
+        </div>
+        <div class="guessRow">
+            <span class="dot" id="PG2"></span>
+            <div class="rectangle r2"></div>
+        </div>
+        <div class="guessRow">
+            <span class="dot" id="PG3"></span>
+            <div class="rectangle r3"></div>
+        </div>
+        <div class="guessRow">
+            <span class="dot" id="PG4"></span>
+            <div class="rectangle r4"></div>
+        </div>
     </div>
 
     <div id="userInput"></div>
