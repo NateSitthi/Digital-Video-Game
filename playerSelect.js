@@ -13,6 +13,8 @@ let guess = 8;
 const minScrambleAtGuess = 2;
 const maxScrambleAtGuess = 5;
 let scrambleAtGuess = 0;
+let rectangle = document.querySelector(".r")
+
 
 function ready() {
     while (combination.length < 4) {
@@ -81,14 +83,17 @@ function checkGuess() {
     for (let i = 0; i < 4; i++) {
         if (userComb[i] === combination[i]) {
             corColorcorPlace++;
+            // rectangle.classList.add("correctPlace");
             console.log(userComb[i])
         }
     }
 
     //(correct color in wrong position)
     for (let i = 0; i < 4; i++) {
+        let rectangle = document.querySelector(".r" + i);
         if (userComb.includes(combination[i]) && userComb[i] !== combination[i]) {
             corColorwrongPlace++;
+            // rectangle.classList.add("wrongPlace");
         }
     }
     for (let i = 1; i <= 4; i++) {
