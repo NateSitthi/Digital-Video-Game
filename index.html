@@ -11,39 +11,66 @@
 <body>
     <!-- <h1>How Many Players?</h1> -->
     <!-- <button id="1Player" onclick="onePlayer()">1 Player (Player vs NPC)</button> -->
-    <button id="confirm" onclick="game()">Confirm</button>
-    <div class="displayedColors">
-        <span class="dot" id="S1"></span>
-        <span class="dot" id="S2"></span>
-        <span class="dot" id="S3"></span>
-        <span class="dot" id="S4"></span>
+    <div class="instructions">
+        <h1>How to play</h1>
+        <p> You click on the 8 colors to fill up your guess of 4 colors, once you done that,
+            click confirm and you will see <br> the feedback under "Previous Guess/Hints."
+        </p>
+        <div>
+            <span class="dot Blue"></span>
+            <div class="rectangle wrongPlace "></div>
+        </div>
+        <p>A yellow rectangle indicates the color is in the combination, but in the wrong place.</p>
+
+        <div>
+            <span class="dot Blue"></span>
+            <div class="rectangle correctPlace"></div>
+        </div>
+        <p><strong>Note, Failure to guess the combination in a certain amount of tries will rescramble the code.</strong></p>
     </div>
-    <div>
-        <button class="dot" id="Red" value='Red' onclick="updateUserlist('Red')"></button>
-        <button class="dot" id="Blue" value='Blue' onclick="updateUserlist('Blue')"></button>
-        <button class="dot" id="Cyan" value='Cyan' onclick="updateUserlist('Cyan')"></button>
-        <button class="dot" id="Pink" value='Pink' onclick="updateUserlist('Pink')"></button>
-        <button class="dot" id="Brown" value='Brown' onclick="updateUserlist('Brown')"></button>
-        <button class="dot" id="Green" value='Green' onclick="updateUserlist('Green')"></button>
-        <button class="dot" id="Black" value='Black' onclick="updateUserlist('Black')"></button>
-        <button class="dot" id="Gold" value='Gold' onclick="updateUserlist('Gold')"></button>
-    </div>
-    <div class="prevGuess">
-        <div class="guessRow">
-            <span class="dot" id="PG1"></span>
-            <div class="rectangle r1"></div>
+
+
+    <div class="body">
+        <h3 id="guessLeft">Guesses left:</h3>
+        <button id="confirm" onclick="game()">Confirm</button>
+
+        <div class="displayedColors">
+            <span class="dot" id="S1"></span>
+            <span class="dot" id="S2"></span>
+            <span class="dot" id="S3"></span>
+            <span class="dot" id="S4"></span>
         </div>
-        <div class="guessRow">
-            <span class="dot" id="PG2"></span>
-            <div class="rectangle r2"></div>
+        <div>
+            <button class="dot" id="Red" value='Red' onclick="updateUserlist('Red')"></button>
+            <button class="dot" id="Blue" value='Blue' onclick="updateUserlist('Blue')"></button>
+            <button class="dot" id="Cyan" value='Cyan' onclick="updateUserlist('Cyan')"></button>
+            <button class="dot" id="Pink" value='Pink' onclick="updateUserlist('Pink')"></button>
+            <div></div>
+            <button class="dot" id="Brown" value='Brown' onclick="updateUserlist('Brown')"></button>
+            <button class="dot" id="Green" value='Green' onclick="updateUserlist('Green')"></button>
+            <button class="dot" id="Black" value='Black' onclick="updateUserlist('Black')"></button>
+            <button class="dot" id="Gold" value='Gold' onclick="updateUserlist('Gold')"></button>
         </div>
-        <div class="guessRow">
-            <span class="dot" id="PG3"></span>
-            <div class="rectangle r3"></div>
-        </div>
-        <div class="guessRow">
-            <span class="dot" id="PG4"></span>
-            <div class="rectangle r4"></div>
+
+        <h3>Previous Guess/Hints:</h3>
+
+        <div class="prevGuess">
+            <div class="guessRow">
+                <span class="dot" id="PG1"></span>
+                <div class="rectangle r1"></div>
+            </div>
+            <div class="guessRow">
+                <span class="dot" id="PG2"></span>
+                <div class="rectangle r2"></div>
+            </div>
+            <div class="guessRow">
+                <span class="dot" id="PG3"></span>
+                <div class="rectangle r3"></div>
+            </div>
+            <div class="guessRow">
+                <span class="dot" id="PG4"></span>
+                <div class="rectangle r4"></div>
+            </div>
         </div>
     </div>
 

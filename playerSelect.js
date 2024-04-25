@@ -119,6 +119,8 @@ function checkGuess() {
         inputColor.removeAttribute("value");
     }
     guess--
+    // document.getElementById("guessLeft").innerText = "Guess Left: "
+    // document.getElementById("guessLeft").innerText += " " + guess;
 
     // Reset
     userComb = [];
