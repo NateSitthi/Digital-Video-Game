@@ -9,14 +9,14 @@ let userComb = [];
 let S1 = document.getElementById("S1"), S2 = document.getElementById("S2"), S3 = document.getElementById("S3"), S4 = document.getElementById("S4")
 let userGuess = 8;
 let randComb = colors[Math.floor(Math.random() * colors.length)];
-let guess = 8;
+let guess = 10;
 const minScrambleAtGuess = 2;
 const maxScrambleAtGuess = 5;
 let scrambleAtGuess = 0;
+let rectangle = document.querySelector(".r")
+
 
 function ready() {
-    conButton = document.getElementById('confirm');
-    // conButton.style.display ='none';
     while (combination.length < 4) {
         let randComb = colors[Math.floor(Math.random() * colors.length)];
         combination.push(randComb);
@@ -32,9 +32,9 @@ function updateUserlist(color) {
         userComb.push(color);
     }
     for (let i = 1; i <= 4; i++) {
-        let currentSpan = document.getElementById("S" + i);
-        if (currentSpan.classList.length < 2) {
-            currentSpan.classList.add("dot", color);
+        let inputColor = document.getElementById("S" + i);
+        if (inputColor.classList.length < 2) {
+            inputColor.classList.add("dot", color);
             break;
         }
 
@@ -42,9 +42,16 @@ function updateUserlist(color) {
 }
 function game() {
     if (userComb.length === 4) {
-        let userInput = "Your input: ";
-        for (let i = 0; i < userComb.length; i++) {
-            userInput += userComb[i] + " ";
+        // Show previous guess dots
+        let prevGuessDots = document.querySelectorAll(".prevGuess .dot");
+        prevGuessDots.forEach(dot => {
+            dot.style.visibility = "visible";
+        });
+
+        // Reset previous guess section
+        for (let i = 0; i < 4; i++) {
+            let prevGuessDot = document.getElementById("PG" + (i + 1));
+            prevGuessDot.classList.remove(prevGuessDot.classList[1]); // Remove previous color class
         }
 
         // Update the previous guess section with the user's combination
@@ -65,45 +72,66 @@ function game() {
 function checkGuess() {
     if(guess === scrambleAtGuess) {
         rescramble();
-        document.getElementById("userInput").innerText +=("\nCode has been rescrambled")
+        document.getElementById("result").innerText +=("\nCode has been rescrambled")
     }
 
 
-    let blackPegs = 0;
-    let whitePegs = 0;
+    let corColorcorPlace = 0;
+    let corColorwrongPlace = 0;
 
     //(correct color in correct position)
-    for (let i = 0; i < 4; i++) {
-        if (userComb[i] === combination[i]) {
-            blackPegs++;
-        }
-    }
+    // for (let i = 0; i < 4; i++) {
+    //     if (userComb[i] === combination[i]) {
+    //         corColorcorPlace++;
+    //         // rectangle.classList.add("correctPlace");
+    //         console.log(userComb[i])
+    //         break
+    //     } 
+    // }
 
     //(correct color in wrong position)
     for (let i = 0; i < 4; i++) {
         if (userComb.includes(combination[i]) && userComb[i] !== combination[i]) {
-            whitePegs++;
+            corColorwrongPlace++;
+
+            // rectangle.classList.add("wrongPlace");
+        } else if (userComb[i] === combination[i]) {
+                    corColorcorPlace++;
+                    // rectangle.classList.add("correctPlace");
+                    console.log(userComb[i])
+                } 
+    }
+    for (let i = 1; i <= 4; i++) {
+        let rectangle = document.querySelector(".r" + i);
+        rectangle.classList.remove("correctPlace", "wrongPlace"); // remove previous classes
+        
+        if (i <= corColorcorPlace) {
+            rectangle.classList.add("correctPlace"); // correct color in correct place
+        } else if (i <= (corColorcorPlace + corColorwrongPlace)) {
+            rectangle.classList.add("wrongPlace"); // correct color in wrong place
         }
     }
-    // Display feedback
-    let feedbackMessage = `Black Pegs: ${blackPegs}, White Pegs: ${whitePegs}`;
-    document.getElementById("result").innerText = feedbackMessage;
-    // win condition
-    if (blackPegs === 4) {
-        document.getElementById("result").innerText += "\nCongratulations! You've guessed the combination!";
+    // display feedback
+    
+    // did the user win
+    if (corColorcorPlace === 4) {
+        document.getElementById("result").innerText += "\nYou've guessed the combination!";
         document.getElementById("confirm").disabled = true;
-        if (guess === 0) {
-            document.getElementById("result").innerText += "\nYou've run out of guesses.";
+        
+    }
+    if (guess === 1) {
+            document.getElementById("result").innerText += "\nYou've run out of guesses and lost :(";
             document.getElementById("confirm").disabled = true;
         }
-    }
     // Clear the color
     for (let i = 1; i <= 4; i++) {
-        let currentSpan = document.getElementById("S" + i);
-        currentSpan.classList.remove(userComb[i - 1]);
-        currentSpan.removeAttribute("value");
+        let inputColor = document.getElementById("S" + i);
+        inputColor.classList.remove(userComb[i - 1]);
+        inputColor.removeAttribute("value");
     }
     guess--
+    document.getElementById("guessLeft").innerText = "Guess Left: "
+    document.getElementById("guessLeft").innerText += " " + guess;
 
     // Reset
     userComb = [];
@@ -115,4 +143,3 @@ function rescramble() {
 
 ready();
 generateRandomScrambleAtGuess();
-

@@ -1,3 +1,11 @@
+.body{
+  margin: auto;
+  position: relative;
+  width: 20%;
+  bottom: 15rem;
+}
+
+
 .dot {
   height: 60px;
   width: 60px;
@@ -89,11 +97,24 @@
   width: 100px;
   position: relative;
   left: 7px;
-  max-width: 3rem;
+  max-width: 1rem;
   max-height: 1rem;
   border-style: solid;
 }
 .prevGuess {
   display: flex;
   justify-content: flex-start;
+}
+.instructions {
+  position: relative;
+  left: 60%
+}
+.Stats {
+display: flex;
+transform: translate(70%,-3rem);
+}
+#result {
+  position: relative;
+  left: 40%;
+  bottom: 17rem;
 }
